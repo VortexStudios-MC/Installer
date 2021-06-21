@@ -9,7 +9,7 @@
 
 ]]----------------------------------------------------------
 
-InstallationContent = {
+InstallationStartup = {
     Name = "Vortex OS",
     Version = 1,
     Description = "An customly made operating system made within the Reinitalized ATM6 server."
@@ -26,7 +26,23 @@ InstallationContent = {
         if SetupType == 2 then
          fs.delete("vsys")   
     end,
-    RebootFinisher = true
+    RebootFinisher = true,
+    ProccessRoadmap = {
+        'SplashScreen',
+        'LicenseMenu',
+        'BranchMenu',
+        'FilesMenu',
+        'ReviewMenu',
+        'InstallationProccess',
+        'UninstallationProccess',
+    }
+}
+
+InstallationProccesses = {
+    Install = {IsRemovingOS = false,BL=[]},
+    Update = {IsRemovingOS = false,BL=['SplashScreen','LicenseMenu','FilesMenu']},
+    Uninstall = {IsRemovingOS = true,BL=['SplashScreen','LicenseMenu','BranchMenu','FilesMenu']},
+    Automatic = {IsRemovingOS = false,BL=['SplashScreen','LicenseMenu','BranchMenu','FilesMenu','ReviewMenu']},
 }
 
 local installationConfig = {
